@@ -19,8 +19,6 @@ docker部署数据大屏期末作业
 * 后端：Python3 + Flask + Ansible
 * 前端：HTML + CSS + JavaScript
 * 容器：Docker + Shell 脚本自动化管理
-  当然可以！根据你提供的项目结构，我为你生成一个初步的 `README.md` 文件草稿，包含 About 项、项目结构说明、主要功能简述、使用方式、Docker 部署等内容。你可以根据实际情况进一步补充。
-
 ---
 
 ## 📌 About
