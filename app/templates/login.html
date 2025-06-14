@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>登录 - 主机监控系统</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <h1>请登录</h1>
+  <form method="POST" style="margin-top: 20px;">
+    <input type="text" name="username" placeholder="用户名" required /><br><br>
+    <input type="password" name="password" placeholder="密码" required /><br><br>
+    <button type="submit">登录</button>
+  </form>
+  {% if error %}
+    <p style="color:red;">{{ error }}</p>
+  {% endif %}
+</body>
+</html>

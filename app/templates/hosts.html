@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>主机管理</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: white;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #top-bar {
+      width: 100%;
+      height: 60px;
+      background-color: #1e1e1e;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .center-title {
+      text-align: center;
+      font-size: 24px;
+      color: white;
+      font-weight: bold;
+      line-height: 60px;
+    }
+
+    #back-button {
+      position: absolute;
+      right: 40px; /* 控制按钮向左移动一点 */
+      top: 10px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #back-button:hover {
+      background: #0056b3;
+    }
+
+    .main {
+      padding-top: 80px; /* 避开顶部栏 */
+      text-align: center;
+    }
+
+    table {
+      margin: 0 auto;
+      color: white;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid white;
+    }
+
+    input {
+      padding: 4px;
+    }
+
+    button {
+      margin: 0 2px;
+      padding: 5px 10px;
+    }
+  </style>
+
+  <script>
+    async function loadHosts() {
+      const res = await fetch("/api/hosts");
+      const hosts = await res.json();
+      const table = document.getElementById("host-table");
+      table.innerHTML = `<tr><th>主机名</th><th>IP</th><th>操作</th></tr>`;
+      hosts.forEach(h => {
+        table.innerHTML += `
+          <tr>
+            <td>${h.name}</td>
+            <td><input value="${h.ip}" id="ip-${h.name}"/></td>
+            <td>
+              <button onclick="updateHost('${h.name}')">更新</button>
+              <button onclick="deleteHost('${h.name}')">删除</button>
+            </td>
+          </tr>`;
+      });
+    }
+
+    async function addHost() {
+      const name = document.getElementById("new-name").value;
+      const ip = document.getElementById("new-ip").value;
+      await fetch("/api/hosts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, ip })
+      });
+      loadHosts();
+    }
+
+    async function deleteHost(name) {
+      await fetch("/api/hosts/" + name, { method: "DELETE" });
+      loadHosts();
+    }
+
+    async function updateHost(name) {
+      const ip = document.getElementById("ip-" + name).value;
+      await fetch("/api/hosts/" + name, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ip })
+      });
+      loadHosts();
+    }
+
+    window.onload = loadHosts;
+  </script>
+</head>
+<body>
+  <div id="top-bar">
+    <div class="center-title">主机管理</div>
+    <button id="back-button" onclick="window.location.href='/dashboard'">返回控制台</button>
+  </div>
+
+  <div class="main">
+    <table id="host-table" border="1"></table>
+
+    <h3>新增主机</h3>
+    <input id="new-name" placeholder="主机名">
+    <input id="new-ip" placeholder="IP地址">
+    <button onclick="addHost()">添加</button>
+  </div>
+</body>
+</html>
+

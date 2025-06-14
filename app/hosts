@@ -1,0 +1,13 @@
+[all]
+Host-0 ansible_host=192.168.10.135
+Host-A ansible_host=192.168.10.10
+Host-B ansible_host=192.168.10.11
+Host-C ansible_host=192.168.10.12
+Host-D ansible_host=192.168.10.13
+Host-E ansible_host=192.168.10.14
+Host-F ansible_host=192.168.10.15
+Host-G ansible_host=192.168.10.16
+Host-H ansible_host=192.168.10.17
+Host-I ansible_host=192.168.10.18
+Host-J ansible_host=192.168.10.19
+
