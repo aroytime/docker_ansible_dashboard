@@ -99,6 +99,7 @@ bash docker_build__setup_and_configure_hosts_ssh.sh
 >
 > 密码：123456
 ![查看 1.png 原图](images/1.png)
+
 ![查看 2.png 原图](images/2.png)
 
 ### 4.管理主机
