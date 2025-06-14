@@ -100,20 +100,12 @@ bash docker_build__setup_and_configure_hosts_ssh.sh
 > 密码：123456
 
 
-![image-20250614135928927](C:\Users\admin\Desktop\test\README.assets\image-20250614135928927.png)
-
-![image-20250614140043720](C:\Users\admin\Desktop\test\README.assets\image-20250614140043720.png)
-=======
-![image-20250614135928927](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20250614135928927.png)
-
-![image-20250614140043720](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20250614140043720.png)
 
 ### 4.管理主机
 
 > 可在线对主机镜像增加，修改和删除
 
-![image-20250614140124795](C:\Users\admin\Desktop\test\README.assets\image-20250614140124795.png)
-=======
+
 ## 🐳 Docker 网络管理脚本使用
 
 ```bash
