@@ -98,13 +98,13 @@ bash docker_build__setup_and_configure_hosts_ssh.sh
 > 用户名：admin
 >
 > 密码：123456
-
-
+![查看 1.png 原图](images/1.png)
+![查看 2.png 原图](images/2.png)
 
 ### 4.管理主机
 
 > 可在线对主机镜像增加，修改和删除
-
+![查看 1.png 原图](images/3.png)
 
 ## 🐳 Docker 网络管理脚本使用
 
